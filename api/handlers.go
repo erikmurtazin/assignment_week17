@@ -14,7 +14,7 @@ func (s *Server) HandleMongoRequest(w http.ResponseWriter, r *http.Request) {
 		writeJSON(w, http.StatusMethodNotAllowed, models.ApiError{Error: "method not allowed"})
 		return
 	}
-	var req db.DbReqest
+	var req db.DbRequest
 	if err := json.NewDecoder(r.Body).Decode(&req); err != nil {
 		log.Println(err)
 		writeJSON(w, http.StatusMethodNotAllowed, models.ApiError{Error: "not enough arguments"})
@@ -38,7 +38,7 @@ func (s *Server) HandleMongoRequest(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
-func (s *Server) handleInMemoryRequest(w http.ResponseWriter, r *http.Request) {
+func (s *Server) HandleInMemoryRequest(w http.ResponseWriter, r *http.Request) {
 	switch r.Method {
 	case "POST":
 		var req models.InMemory

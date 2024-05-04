@@ -17,7 +17,7 @@ type Mongodb struct {
 	Collection *mongo.Collection
 }
 
-type DbReqest struct {
+type DbRequest struct {
 	StartDate string `json:"startDate"`
 	EndDate   string `json:"endDate"`
 	MinCount  int    `json:"minCount"`
@@ -46,7 +46,7 @@ func NewStorage() (*Mongodb, error) {
 
 }
 
-func (db *Mongodb) FetchDataFromMongo(r DbReqest) (*[]DbResponse, error) {
+func (db *Mongodb) FetchDataFromMongo(r DbRequest) (*[]DbResponse, error) {
 	startDate, err := parseTime(r.StartDate)
 	if err != nil {
 		return nil, err

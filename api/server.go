@@ -22,7 +22,7 @@ func NewServer(db *db.Mongodb) *Server {
 func (s *Server) Run() {
 	router := http.NewServeMux()
 	router.HandleFunc("/mongo", s.HandleMongoRequest)
-	router.HandleFunc("/in-memory", s.handleInMemoryRequest)
+	router.HandleFunc("/in-memory", s.HandleInMemoryRequest)
 	listenAddr := os.Getenv("LISTEN_ADDR")
 	log.Println("Server listening on port", listenAddr)
 	http.ListenAndServe(listenAddr, router)
