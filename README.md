@@ -1,4 +1,4 @@
-# REST API server with two endpoints
+# RESTful API with two endpoints
 
 # Run
 
